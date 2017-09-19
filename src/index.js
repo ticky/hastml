@@ -9,7 +9,7 @@ export default (html, callback) => {
   // We piggyback on `replace`, which means you can walk the tree and replace
   // stuff within it, but you don't have to!
   return html.replace(
-    /(<\/?([a-z][a-z0-9\.\-]*)|\/>|>)/gi,
+    /(<\/?([^\s\/\>]*)|\/>|>)/gi,
     (match, tagFragment, tagName, offset, string) => {
       // This callback is called for every "tag fragment" encountered.
       // This doesn't guarantee the HTML is valid, compliant, or even useful,
