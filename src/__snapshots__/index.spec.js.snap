@@ -1,0 +1,639 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`walker calls the callback for each given HTML token 1`] = `
+Array [
+  "<html",
+  "<",
+  0,
+  "<html><head></head><body><img /></body></html>",
+  Object {
+    "state": "open",
+    "tagName": "html",
+  },
+  Array [
+    Object {
+      "state": "open",
+      "tagName": "html",
+    },
+  ],
+]
+`;
+
+exports[`walker calls the callback for each given HTML token 2`] = `
+Array [
+  ">",
+  ">",
+  5,
+  "<html><head></head><body><img /></body></html>",
+  Object {
+    "state": "content",
+    "tagName": "html",
+  },
+  Array [
+    Object {
+      "state": "content",
+      "tagName": "html",
+    },
+  ],
+]
+`;
+
+exports[`walker calls the callback for each given HTML token 3`] = `
+Array [
+  "<head",
+  "<",
+  6,
+  "<html><head></head><body><img /></body></html>",
+  Object {
+    "state": "open",
+    "tagName": "head",
+  },
+  Array [
+    Object {
+      "state": "content",
+      "tagName": "html",
+    },
+    Object {
+      "state": "open",
+      "tagName": "head",
+    },
+  ],
+]
+`;
+
+exports[`walker calls the callback for each given HTML token 4`] = `
+Array [
+  ">",
+  ">",
+  11,
+  "<html><head></head><body><img /></body></html>",
+  Object {
+    "state": "content",
+    "tagName": "head",
+  },
+  Array [
+    Object {
+      "state": "content",
+      "tagName": "html",
+    },
+    Object {
+      "state": "content",
+      "tagName": "head",
+    },
+  ],
+]
+`;
+
+exports[`walker calls the callback for each given HTML token 5`] = `
+Array [
+  "</head",
+  "</",
+  12,
+  "<html><head></head><body><img /></body></html>",
+  Object {
+    "state": "closing",
+    "tagName": "head",
+  },
+  Array [
+    Object {
+      "state": "content",
+      "tagName": "html",
+    },
+    Object {
+      "state": "closing",
+      "tagName": "head",
+    },
+  ],
+]
+`;
+
+exports[`walker calls the callback for each given HTML token 6`] = `
+Array [
+  ">",
+  ">",
+  18,
+  "<html><head></head><body><img /></body></html>",
+  Object {
+    "state": "closing",
+    "tagName": "head",
+  },
+  Array [
+    Object {
+      "state": "content",
+      "tagName": "html",
+    },
+    Object {
+      "state": "closing",
+      "tagName": "head",
+    },
+  ],
+]
+`;
+
+exports[`walker calls the callback for each given HTML token 7`] = `
+Array [
+  "<body",
+  "<",
+  19,
+  "<html><head></head><body><img /></body></html>",
+  Object {
+    "state": "open",
+    "tagName": "body",
+  },
+  Array [
+    Object {
+      "state": "content",
+      "tagName": "html",
+    },
+    Object {
+      "state": "open",
+      "tagName": "body",
+    },
+  ],
+]
+`;
+
+exports[`walker calls the callback for each given HTML token 8`] = `
+Array [
+  ">",
+  ">",
+  24,
+  "<html><head></head><body><img /></body></html>",
+  Object {
+    "state": "content",
+    "tagName": "body",
+  },
+  Array [
+    Object {
+      "state": "content",
+      "tagName": "html",
+    },
+    Object {
+      "state": "content",
+      "tagName": "body",
+    },
+  ],
+]
+`;
+
+exports[`walker calls the callback for each given HTML token 9`] = `
+Array [
+  "<img",
+  "<",
+  25,
+  "<html><head></head><body><img /></body></html>",
+  Object {
+    "state": "open",
+    "tagName": "img",
+  },
+  Array [
+    Object {
+      "state": "content",
+      "tagName": "html",
+    },
+    Object {
+      "state": "content",
+      "tagName": "body",
+    },
+    Object {
+      "state": "open",
+      "tagName": "img",
+    },
+  ],
+]
+`;
+
+exports[`walker calls the callback for each given HTML token 10`] = `
+Array [
+  "/>",
+  "/>",
+  30,
+  "<html><head></head><body><img /></body></html>",
+  Object {
+    "state": "open",
+    "tagName": "img",
+  },
+  Array [
+    Object {
+      "state": "content",
+      "tagName": "html",
+    },
+    Object {
+      "state": "content",
+      "tagName": "body",
+    },
+    Object {
+      "state": "open",
+      "tagName": "img",
+    },
+  ],
+]
+`;
+
+exports[`walker calls the callback for each given HTML token 11`] = `
+Array [
+  "</body",
+  "</",
+  32,
+  "<html><head></head><body><img /></body></html>",
+  Object {
+    "state": "closing",
+    "tagName": "body",
+  },
+  Array [
+    Object {
+      "state": "content",
+      "tagName": "html",
+    },
+    Object {
+      "state": "closing",
+      "tagName": "body",
+    },
+  ],
+]
+`;
+
+exports[`walker calls the callback for each given HTML token 12`] = `
+Array [
+  ">",
+  ">",
+  38,
+  "<html><head></head><body><img /></body></html>",
+  Object {
+    "state": "closing",
+    "tagName": "body",
+  },
+  Array [
+    Object {
+      "state": "content",
+      "tagName": "html",
+    },
+    Object {
+      "state": "closing",
+      "tagName": "body",
+    },
+  ],
+]
+`;
+
+exports[`walker calls the callback for each given HTML token 13`] = `
+Array [
+  "</html",
+  "</",
+  39,
+  "<html><head></head><body><img /></body></html>",
+  Object {
+    "state": "closing",
+    "tagName": "html",
+  },
+  Array [
+    Object {
+      "state": "closing",
+      "tagName": "html",
+    },
+  ],
+]
+`;
+
+exports[`walker calls the callback for each given HTML token 14`] = `
+Array [
+  ">",
+  ">",
+  45,
+  "<html><head></head><body><img /></body></html>",
+  Object {
+    "state": "closing",
+    "tagName": "html",
+  },
+  Array [
+    Object {
+      "state": "closing",
+      "tagName": "html",
+    },
+  ],
+]
+`;
+
+exports[`walker calls the callback for each given HTML token 15`] = `14`;
+
+exports[`walker calls the callback for each given HTML token 16`] = `"<html><head></head><body><img /></body></html>"`;
+
+exports[`walker gives correct coordinates when the HTML is changed 1`] = `
+Array [
+  "<html",
+  "<",
+  0,
+  "<html><head></head><body><img /></body></html>",
+  Object {
+    "state": "open",
+    "tagName": "html",
+  },
+  Array [
+    Object {
+      "state": "open",
+      "tagName": "html",
+    },
+  ],
+]
+`;
+
+exports[`walker gives correct coordinates when the HTML is changed 2`] = `
+Array [
+  ">",
+  ">",
+  5,
+  "<html><head></head><body><img /></body></html>",
+  Object {
+    "state": "content",
+    "tagName": "html",
+  },
+  Array [
+    Object {
+      "state": "content",
+      "tagName": "html",
+    },
+  ],
+]
+`;
+
+exports[`walker gives correct coordinates when the HTML is changed 3`] = `
+Array [
+  "<head",
+  "<",
+  6,
+  "<html><head></head><body><img /></body></html>",
+  Object {
+    "state": "open",
+    "tagName": "head",
+  },
+  Array [
+    Object {
+      "state": "content",
+      "tagName": "html",
+    },
+    Object {
+      "state": "open",
+      "tagName": "head",
+    },
+  ],
+]
+`;
+
+exports[`walker gives correct coordinates when the HTML is changed 4`] = `
+Array [
+  ">",
+  ">",
+  11,
+  "<html><head></head><body><img /></body></html>",
+  Object {
+    "state": "content",
+    "tagName": "head",
+  },
+  Array [
+    Object {
+      "state": "content",
+      "tagName": "html",
+    },
+    Object {
+      "state": "content",
+      "tagName": "head",
+    },
+  ],
+]
+`;
+
+exports[`walker gives correct coordinates when the HTML is changed 5`] = `
+Array [
+  "</head",
+  "</",
+  12,
+  "<html><head></head><body><img /></body></html>",
+  Object {
+    "state": "closing",
+    "tagName": "head",
+  },
+  Array [
+    Object {
+      "state": "content",
+      "tagName": "html",
+    },
+    Object {
+      "state": "closing",
+      "tagName": "head",
+    },
+  ],
+]
+`;
+
+exports[`walker gives correct coordinates when the HTML is changed 6`] = `
+Array [
+  ">",
+  ">",
+  18,
+  "<html><head></head><body><img /></body></html>",
+  Object {
+    "state": "closing",
+    "tagName": "head",
+  },
+  Array [
+    Object {
+      "state": "content",
+      "tagName": "html",
+    },
+    Object {
+      "state": "closing",
+      "tagName": "head",
+    },
+  ],
+]
+`;
+
+exports[`walker gives correct coordinates when the HTML is changed 7`] = `
+Array [
+  "<body",
+  "<",
+  19,
+  "<html><head></head><body><img /></body></html>",
+  Object {
+    "state": "open",
+    "tagName": "body",
+  },
+  Array [
+    Object {
+      "state": "content",
+      "tagName": "html",
+    },
+    Object {
+      "state": "open",
+      "tagName": "body",
+    },
+  ],
+]
+`;
+
+exports[`walker gives correct coordinates when the HTML is changed 8`] = `
+Array [
+  ">",
+  ">",
+  24,
+  "<html><head></head><body><img /></body></html>",
+  Object {
+    "state": "content",
+    "tagName": "body",
+  },
+  Array [
+    Object {
+      "state": "content",
+      "tagName": "html",
+    },
+    Object {
+      "state": "content",
+      "tagName": "body",
+    },
+  ],
+]
+`;
+
+exports[`walker gives correct coordinates when the HTML is changed 9`] = `
+Array [
+  "<img",
+  "<",
+  25,
+  "<html><head></head><body><img /></body></html>",
+  Object {
+    "state": "open",
+    "tagName": "img",
+  },
+  Array [
+    Object {
+      "state": "content",
+      "tagName": "html",
+    },
+    Object {
+      "state": "content",
+      "tagName": "body",
+    },
+    Object {
+      "state": "open",
+      "tagName": "img",
+    },
+  ],
+]
+`;
+
+exports[`walker gives correct coordinates when the HTML is changed 10`] = `
+Array [
+  "/>",
+  "/>",
+  30,
+  "<html><head></head><body><img /></body></html>",
+  Object {
+    "state": "open",
+    "tagName": "img",
+  },
+  Array [
+    Object {
+      "state": "content",
+      "tagName": "html",
+    },
+    Object {
+      "state": "content",
+      "tagName": "body",
+    },
+    Object {
+      "state": "open",
+      "tagName": "img",
+    },
+  ],
+]
+`;
+
+exports[`walker gives correct coordinates when the HTML is changed 11`] = `
+Array [
+  "</body",
+  "</",
+  32,
+  "<html><head></head><body><img /></body></html>",
+  Object {
+    "state": "closing",
+    "tagName": "body",
+  },
+  Array [
+    Object {
+      "state": "content",
+      "tagName": "html",
+    },
+    Object {
+      "state": "closing",
+      "tagName": "body",
+    },
+  ],
+]
+`;
+
+exports[`walker gives correct coordinates when the HTML is changed 12`] = `
+Array [
+  ">",
+  ">",
+  38,
+  "<html><head></head><body><img /></body></html>",
+  Object {
+    "state": "closing",
+    "tagName": "body",
+  },
+  Array [
+    Object {
+      "state": "content",
+      "tagName": "html",
+    },
+    Object {
+      "state": "closing",
+      "tagName": "body",
+    },
+  ],
+]
+`;
+
+exports[`walker gives correct coordinates when the HTML is changed 13`] = `
+Array [
+  "</html",
+  "</",
+  39,
+  "<html><head></head><body><img /></body></html>",
+  Object {
+    "state": "closing",
+    "tagName": "html",
+  },
+  Array [
+    Object {
+      "state": "closing",
+      "tagName": "html",
+    },
+  ],
+]
+`;
+
+exports[`walker gives correct coordinates when the HTML is changed 14`] = `
+Array [
+  ">",
+  ">",
+  45,
+  "<html><head></head><body><img /></body></html>",
+  Object {
+    "state": "closing",
+    "tagName": "html",
+  },
+  Array [
+    Object {
+      "state": "closing",
+      "tagName": "html",
+    },
+  ],
+]
+`;
+
+exports[`walker gives correct coordinates when the HTML is changed 15`] = `14`;
+
+exports[`walker gives correct coordinates when the HTML is changed 16`] = `"<html autocomplete=\\"off\\"> autocomplete=\\"off\\"<head autocomplete=\\"off\\"> autocomplete=\\"off\\"</head autocomplete=\\"off\\"> autocomplete=\\"off\\"<body autocomplete=\\"off\\"> autocomplete=\\"off\\"<img autocomplete=\\"off\\" /> autocomplete=\\"off\\"</body autocomplete=\\"off\\"> autocomplete=\\"off\\"</html autocomplete=\\"off\\"> autocomplete=\\"off\\""`;
+
+exports[`walker throws an error if no callback is supplied 1`] = `"A callback is required!"`;

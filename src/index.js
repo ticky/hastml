@@ -1,0 +1,84 @@
+export default (html, callback) => {
+  if (typeof callback !== 'function') {
+    throw new Error('A callback is required!');
+  }
+
+  // Stack for keeping track of HTML fragments encountered
+  const stack = [];
+
+  // We piggyback on `replace`, which means you can walk the tree and replace
+  // stuff within it, but you don't have to!
+  return html.replace(
+    /(<\/?([a-z][a-z0-9\.\-]*)|\/>|>)/gi,
+    (match, tagFragment, tagName, offset, string) => {
+      // This callback is called for every "tag fragment" encountered.
+      // This doesn't guarantee the HTML is valid, compliant, or even useful,
+      // but it's simple and permissive enough to let you build smarter things
+      // atop it.
+
+      // If we have a tag name, this is an opening tag and we want to strip the
+      // name from the fragment
+      if (tagName) {
+        tagFragment = tagFragment.replace(tagName, '');
+      }
+
+      let thisTag;
+      const lastTag = stack[stack.length - 1] || {};
+      let shouldPopStack = false;
+
+      // Based upon the first one or two characters of the match, we know
+      // certain different things are happening
+      switch (tagFragment) {
+        case '<':
+          // A tag is opening, so we push an object onto the tag stack
+          thisTag = {
+            tagName,
+            state: 'open'
+          };
+
+          stack.push(thisTag);
+          break;
+
+        case '>':
+          // A non-void element tag is either beginning content, or closing
+          switch(lastTag.state) {
+            case 'open':
+              lastTag.state = 'content';
+              break;
+            case 'closing':
+              shouldPopStack = true;
+              break;
+          }
+
+          break;
+
+        case '/>':
+          // A void element tag is closing
+          shouldPopStack = true;
+          break;
+
+        case '</':
+          // A non-void element tag's closing tag is beginning
+          lastTag.state = 'closing';
+          break;
+      }
+
+      // We call back, supplying the arguments suppled to String.replace's
+      // callback, as well as some of our own stuff
+      const returnValue = callback(
+        match,
+        tagFragment,
+        offset,
+        string,
+        thisTag || lastTag,
+        stack
+      );
+
+      if (shouldPopStack) {
+        stack.pop();
+      }
+
+      return returnValue;
+    }
+  );
+};

@@ -1,0 +1,36 @@
+{
+  "name": "hastml",
+  "version": "1.0.0",
+  "description": "Hasty HTML walker",
+  "main": "index.js",
+  "author": "Jessica Stokes <hello@jessicastokes.net>",
+  "license": "MIT",
+  "scripts": {
+    "prepublish": "babel src --out-dir . --source-maps inline --ignore \"**/*.spec.js\"",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "babel-jest": "^21.0.2",
+    "jest": "^21.1.0"
+  },
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.0"
+  },
+  "babel": {
+    "plugins": [
+      "transform-object-rest-spread"
+    ],
+    "presets": [
+      "env"
+    ]
+  },
+  "jest": {
+    "collectCoverage": true,
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/__fixtures__/"
+    ]
+  }
+}
