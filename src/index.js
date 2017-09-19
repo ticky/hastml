@@ -33,7 +33,8 @@ export default (html, callback) => {
           // A tag is opening, so we push an object onto the tag stack
           thisTag = {
             tagName,
-            state: 'open'
+            state: 'open',
+            openIndex: offset
           };
 
           stack.push(thisTag);
@@ -43,9 +44,11 @@ export default (html, callback) => {
           // A non-void element tag is either beginning content, or closing
           switch(lastTag.state) {
             case 'open':
+              lastTag.contentIndex = offset;
               lastTag.state = 'content';
               break;
             case 'closing':
+              lastTag.closeIndex = offset;
               shouldPopStack = true;
               break;
           }
@@ -54,11 +57,13 @@ export default (html, callback) => {
 
         case '/>':
           // A void element tag is closing
+          lastTag.closeIndex = offset;
           shouldPopStack = true;
           break;
 
         case '</':
           // A non-void element tag's closing tag is beginning
+          lastTag.closingIndex = offset;
           lastTag.state = 'closing';
           break;
       }
