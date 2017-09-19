@@ -9,7 +9,7 @@ export default (html, callback) => {
   // We piggyback on `replace`, which means you can walk the tree and replace
   // stuff within it, but you don't have to!
   return html.replace(
-    /(<\/?([^\s\/\>]*)|\/>|>)/gi,
+    /(<\/?([^\s/>]*)|\/>|>)/gi,
     (match, tagFragment, tagName, offset, string) => {
       // This callback is called for every "tag fragment" encountered.
       // This doesn't guarantee the HTML is valid, compliant, or even useful,
@@ -42,7 +42,7 @@ export default (html, callback) => {
 
         case '>':
           // A non-void element tag is either beginning content, or closing
-          switch(lastTag.state) {
+          switch (lastTag.state) {
             case 'open':
               lastTag.contentIndex = offset;
               lastTag.state = 'content';
