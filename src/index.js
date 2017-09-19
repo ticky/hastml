@@ -83,6 +83,11 @@ export default (html, callback) => {
         stack.pop();
       }
 
+      // Don't replace values if the callback didn't explicitly return
+      if (typeof returnValue !== 'string') {
+        return match;
+      }
+
       return returnValue;
     }
   );

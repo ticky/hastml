@@ -23,6 +23,22 @@ describe('walker', () => {
     expect(output).toMatchSnapshot();
   });
 
+  it(`doesn't mutate the output if the callback doesn't explicitly return a string value`, () => {
+    const callback = jest.fn(
+      (...args) => {
+        expect(args).toMatchSnapshot();
+      }
+    );
+
+    const output = walker(
+      '<html><head></head><body><img /></body></html>',
+      callback
+    );
+
+    expect(callback.mock.calls.length).toMatchSnapshot();
+    expect(output).toMatchSnapshot();
+  });
+
   it('gives correct coordinates when the HTML is changed', () => {
     const callback = jest.fn(
       (...args) => {

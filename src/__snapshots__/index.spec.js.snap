@@ -408,6 +408,414 @@ exports[`walker calls the callback for each given HTML token 15`] = `14`;
 
 exports[`walker calls the callback for each given HTML token 16`] = `"<html><head></head><body><img /></body></html>"`;
 
+exports[`walker doesn't mutate the output if the callback doesn't explicitly return a string value 1`] = `
+Array [
+  "<html",
+  "<",
+  0,
+  "<html><head></head><body><img /></body></html>",
+  Object {
+    "openIndex": 0,
+    "state": "open",
+    "tagName": "html",
+  },
+  Array [
+    Object {
+      "openIndex": 0,
+      "state": "open",
+      "tagName": "html",
+    },
+  ],
+]
+`;
+
+exports[`walker doesn't mutate the output if the callback doesn't explicitly return a string value 2`] = `
+Array [
+  ">",
+  ">",
+  5,
+  "<html><head></head><body><img /></body></html>",
+  Object {
+    "contentIndex": 5,
+    "openIndex": 0,
+    "state": "content",
+    "tagName": "html",
+  },
+  Array [
+    Object {
+      "contentIndex": 5,
+      "openIndex": 0,
+      "state": "content",
+      "tagName": "html",
+    },
+  ],
+]
+`;
+
+exports[`walker doesn't mutate the output if the callback doesn't explicitly return a string value 3`] = `
+Array [
+  "<head",
+  "<",
+  6,
+  "<html><head></head><body><img /></body></html>",
+  Object {
+    "openIndex": 6,
+    "state": "open",
+    "tagName": "head",
+  },
+  Array [
+    Object {
+      "contentIndex": 5,
+      "openIndex": 0,
+      "state": "content",
+      "tagName": "html",
+    },
+    Object {
+      "openIndex": 6,
+      "state": "open",
+      "tagName": "head",
+    },
+  ],
+]
+`;
+
+exports[`walker doesn't mutate the output if the callback doesn't explicitly return a string value 4`] = `
+Array [
+  ">",
+  ">",
+  11,
+  "<html><head></head><body><img /></body></html>",
+  Object {
+    "contentIndex": 11,
+    "openIndex": 6,
+    "state": "content",
+    "tagName": "head",
+  },
+  Array [
+    Object {
+      "contentIndex": 5,
+      "openIndex": 0,
+      "state": "content",
+      "tagName": "html",
+    },
+    Object {
+      "contentIndex": 11,
+      "openIndex": 6,
+      "state": "content",
+      "tagName": "head",
+    },
+  ],
+]
+`;
+
+exports[`walker doesn't mutate the output if the callback doesn't explicitly return a string value 5`] = `
+Array [
+  "</head",
+  "</",
+  12,
+  "<html><head></head><body><img /></body></html>",
+  Object {
+    "closingIndex": 12,
+    "contentIndex": 11,
+    "openIndex": 6,
+    "state": "closing",
+    "tagName": "head",
+  },
+  Array [
+    Object {
+      "contentIndex": 5,
+      "openIndex": 0,
+      "state": "content",
+      "tagName": "html",
+    },
+    Object {
+      "closingIndex": 12,
+      "contentIndex": 11,
+      "openIndex": 6,
+      "state": "closing",
+      "tagName": "head",
+    },
+  ],
+]
+`;
+
+exports[`walker doesn't mutate the output if the callback doesn't explicitly return a string value 6`] = `
+Array [
+  ">",
+  ">",
+  18,
+  "<html><head></head><body><img /></body></html>",
+  Object {
+    "closeIndex": 18,
+    "closingIndex": 12,
+    "contentIndex": 11,
+    "openIndex": 6,
+    "state": "closing",
+    "tagName": "head",
+  },
+  Array [
+    Object {
+      "contentIndex": 5,
+      "openIndex": 0,
+      "state": "content",
+      "tagName": "html",
+    },
+    Object {
+      "closeIndex": 18,
+      "closingIndex": 12,
+      "contentIndex": 11,
+      "openIndex": 6,
+      "state": "closing",
+      "tagName": "head",
+    },
+  ],
+]
+`;
+
+exports[`walker doesn't mutate the output if the callback doesn't explicitly return a string value 7`] = `
+Array [
+  "<body",
+  "<",
+  19,
+  "<html><head></head><body><img /></body></html>",
+  Object {
+    "openIndex": 19,
+    "state": "open",
+    "tagName": "body",
+  },
+  Array [
+    Object {
+      "contentIndex": 5,
+      "openIndex": 0,
+      "state": "content",
+      "tagName": "html",
+    },
+    Object {
+      "openIndex": 19,
+      "state": "open",
+      "tagName": "body",
+    },
+  ],
+]
+`;
+
+exports[`walker doesn't mutate the output if the callback doesn't explicitly return a string value 8`] = `
+Array [
+  ">",
+  ">",
+  24,
+  "<html><head></head><body><img /></body></html>",
+  Object {
+    "contentIndex": 24,
+    "openIndex": 19,
+    "state": "content",
+    "tagName": "body",
+  },
+  Array [
+    Object {
+      "contentIndex": 5,
+      "openIndex": 0,
+      "state": "content",
+      "tagName": "html",
+    },
+    Object {
+      "contentIndex": 24,
+      "openIndex": 19,
+      "state": "content",
+      "tagName": "body",
+    },
+  ],
+]
+`;
+
+exports[`walker doesn't mutate the output if the callback doesn't explicitly return a string value 9`] = `
+Array [
+  "<img",
+  "<",
+  25,
+  "<html><head></head><body><img /></body></html>",
+  Object {
+    "openIndex": 25,
+    "state": "open",
+    "tagName": "img",
+  },
+  Array [
+    Object {
+      "contentIndex": 5,
+      "openIndex": 0,
+      "state": "content",
+      "tagName": "html",
+    },
+    Object {
+      "contentIndex": 24,
+      "openIndex": 19,
+      "state": "content",
+      "tagName": "body",
+    },
+    Object {
+      "openIndex": 25,
+      "state": "open",
+      "tagName": "img",
+    },
+  ],
+]
+`;
+
+exports[`walker doesn't mutate the output if the callback doesn't explicitly return a string value 10`] = `
+Array [
+  "/>",
+  "/>",
+  30,
+  "<html><head></head><body><img /></body></html>",
+  Object {
+    "closeIndex": 30,
+    "openIndex": 25,
+    "state": "open",
+    "tagName": "img",
+  },
+  Array [
+    Object {
+      "contentIndex": 5,
+      "openIndex": 0,
+      "state": "content",
+      "tagName": "html",
+    },
+    Object {
+      "contentIndex": 24,
+      "openIndex": 19,
+      "state": "content",
+      "tagName": "body",
+    },
+    Object {
+      "closeIndex": 30,
+      "openIndex": 25,
+      "state": "open",
+      "tagName": "img",
+    },
+  ],
+]
+`;
+
+exports[`walker doesn't mutate the output if the callback doesn't explicitly return a string value 11`] = `
+Array [
+  "</body",
+  "</",
+  32,
+  "<html><head></head><body><img /></body></html>",
+  Object {
+    "closingIndex": 32,
+    "contentIndex": 24,
+    "openIndex": 19,
+    "state": "closing",
+    "tagName": "body",
+  },
+  Array [
+    Object {
+      "contentIndex": 5,
+      "openIndex": 0,
+      "state": "content",
+      "tagName": "html",
+    },
+    Object {
+      "closingIndex": 32,
+      "contentIndex": 24,
+      "openIndex": 19,
+      "state": "closing",
+      "tagName": "body",
+    },
+  ],
+]
+`;
+
+exports[`walker doesn't mutate the output if the callback doesn't explicitly return a string value 12`] = `
+Array [
+  ">",
+  ">",
+  38,
+  "<html><head></head><body><img /></body></html>",
+  Object {
+    "closeIndex": 38,
+    "closingIndex": 32,
+    "contentIndex": 24,
+    "openIndex": 19,
+    "state": "closing",
+    "tagName": "body",
+  },
+  Array [
+    Object {
+      "contentIndex": 5,
+      "openIndex": 0,
+      "state": "content",
+      "tagName": "html",
+    },
+    Object {
+      "closeIndex": 38,
+      "closingIndex": 32,
+      "contentIndex": 24,
+      "openIndex": 19,
+      "state": "closing",
+      "tagName": "body",
+    },
+  ],
+]
+`;
+
+exports[`walker doesn't mutate the output if the callback doesn't explicitly return a string value 13`] = `
+Array [
+  "</html",
+  "</",
+  39,
+  "<html><head></head><body><img /></body></html>",
+  Object {
+    "closingIndex": 39,
+    "contentIndex": 5,
+    "openIndex": 0,
+    "state": "closing",
+    "tagName": "html",
+  },
+  Array [
+    Object {
+      "closingIndex": 39,
+      "contentIndex": 5,
+      "openIndex": 0,
+      "state": "closing",
+      "tagName": "html",
+    },
+  ],
+]
+`;
+
+exports[`walker doesn't mutate the output if the callback doesn't explicitly return a string value 14`] = `
+Array [
+  ">",
+  ">",
+  45,
+  "<html><head></head><body><img /></body></html>",
+  Object {
+    "closeIndex": 45,
+    "closingIndex": 39,
+    "contentIndex": 5,
+    "openIndex": 0,
+    "state": "closing",
+    "tagName": "html",
+  },
+  Array [
+    Object {
+      "closeIndex": 45,
+      "closingIndex": 39,
+      "contentIndex": 5,
+      "openIndex": 0,
+      "state": "closing",
+      "tagName": "html",
+    },
+  ],
+]
+`;
+
+exports[`walker doesn't mutate the output if the callback doesn't explicitly return a string value 15`] = `14`;
+
+exports[`walker doesn't mutate the output if the callback doesn't explicitly return a string value 16`] = `"<html><head></head><body><img /></body></html>"`;
+
 exports[`walker gives correct coordinates when the HTML is changed 1`] = `
 Array [
   "<html",
