@@ -291,13 +291,13 @@ Array [
 exports[`walker calls the callback for each given HTML token 11`] = `
 Array [
   "<!--",
-  "<",
+  "<!--",
   32,
   "<html><head></head><body><img /><!-- ignore tis plx--></body></html>",
   Object {
     "openIndex": 32,
     "state": "open",
-    "tagName": "!--",
+    "tagName": undefined,
   },
   Array [
     Object {
@@ -315,7 +315,7 @@ Array [
     Object {
       "openIndex": 32,
       "state": "open",
-      "tagName": "!--",
+      "tagName": undefined,
     },
   ],
 ]
@@ -331,7 +331,7 @@ Array [
     "closeIndex": 51,
     "openIndex": 32,
     "state": "open",
-    "tagName": "!--",
+    "tagName": undefined,
   },
   Array [
     Object {
@@ -350,7 +350,7 @@ Array [
       "closeIndex": 51,
       "openIndex": 32,
       "state": "open",
-      "tagName": "!--",
+      "tagName": undefined,
     },
   ],
 ]
@@ -767,13 +767,13 @@ Array [
 exports[`walker doesn't mutate the output if the callback doesn't explicitly return a string value 11`] = `
 Array [
   "<!--",
-  "<",
+  "<!--",
   32,
   "<html><head></head><body><img /><!-- ignore tis plx--></body></html>",
   Object {
     "openIndex": 32,
     "state": "open",
-    "tagName": "!--",
+    "tagName": undefined,
   },
   Array [
     Object {
@@ -791,7 +791,7 @@ Array [
     Object {
       "openIndex": 32,
       "state": "open",
-      "tagName": "!--",
+      "tagName": undefined,
     },
   ],
 ]
@@ -807,7 +807,7 @@ Array [
     "closeIndex": 51,
     "openIndex": 32,
     "state": "open",
-    "tagName": "!--",
+    "tagName": undefined,
   },
   Array [
     Object {
@@ -826,7 +826,7 @@ Array [
       "closeIndex": 51,
       "openIndex": 32,
       "state": "open",
-      "tagName": "!--",
+      "tagName": undefined,
     },
   ],
 ]
@@ -1243,13 +1243,13 @@ Array [
 exports[`walker gives correct coordinates when the HTML is changed 11`] = `
 Array [
   "<!--",
-  "<",
+  "<!--",
   32,
   "<html><head></head><body><img /><!-- ignore tis plx--></body></html>",
   Object {
     "openIndex": 32,
     "state": "open",
-    "tagName": "!--",
+    "tagName": undefined,
   },
   Array [
     Object {
@@ -1267,7 +1267,7 @@ Array [
     Object {
       "openIndex": 32,
       "state": "open",
-      "tagName": "!--",
+      "tagName": undefined,
     },
   ],
 ]
@@ -1283,7 +1283,7 @@ Array [
     "closeIndex": 51,
     "openIndex": 32,
     "state": "open",
-    "tagName": "!--",
+    "tagName": undefined,
   },
   Array [
     Object {
@@ -1302,7 +1302,7 @@ Array [
       "closeIndex": 51,
       "openIndex": 32,
       "state": "open",
-      "tagName": "!--",
+      "tagName": undefined,
     },
   ],
 ]

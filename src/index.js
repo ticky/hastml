@@ -9,7 +9,7 @@ export default (html, callback) => {
   // We piggyback on `replace`, which means you can walk the tree and replace
   // stuff within it, but you don't have to!
   return html.replace(
-    /(<\/?([^\s/>]*)|\/>|(?:--)?>)/gi,
+    /(<(?:!--|\/?([^\s/>]*))|\/>|(?:--)?>)/gi,
     (match, tagFragment, tagName, offset, string) => {
       // This callback is called for every "tag fragment" encountered.
       // This doesn't guarantee the SGML is valid, compliant, or even useful,
@@ -26,11 +26,12 @@ export default (html, callback) => {
       const lastTag = stack[stack.length - 1] || {};
       let shouldPopStack = false;
 
-      // Based upon the first one or two characters of the match, we know
+      // Based upon the first one to four characters of the match, we know
       // certain different things are happening
       switch (tagFragment) {
         case '<':
-          // A tag is opening, so we push an object onto the tag stack
+        case '<!--':
+          // A tag or comment is opening, push an object onto the tagstack
           thisTag = {
             tagName,
             state: 'open',
