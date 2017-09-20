@@ -1,7 +1,7 @@
 {
   "name": "hastml",
-  "version": "1.0.0",
-  "description": "Hasty HTML walker",
+  "version": "0.1.0",
+  "description": "Hasty HTML, XML and SGML walker",
   "main": "index.js",
   "author": "Jessica Stokes <hello@jessicastokes.net>",
   "license": "MIT",

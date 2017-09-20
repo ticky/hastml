@@ -1,0 +1,5 @@
+coverage
+__snapshots__
+*.spec.js
+yarn.lock
+*.tgz
