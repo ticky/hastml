@@ -5,7 +5,7 @@ Array [
   "<html",
   "<",
   0,
-  "<html><head></head><body><img /></body></html>",
+  "<html><head></head><body><img /><!-- ignore tis plx--></body></html>",
   Object {
     "openIndex": 0,
     "state": "open",
@@ -26,7 +26,7 @@ Array [
   ">",
   ">",
   5,
-  "<html><head></head><body><img /></body></html>",
+  "<html><head></head><body><img /><!-- ignore tis plx--></body></html>",
   Object {
     "contentIndex": 5,
     "openIndex": 0,
@@ -49,7 +49,7 @@ Array [
   "<head",
   "<",
   6,
-  "<html><head></head><body><img /></body></html>",
+  "<html><head></head><body><img /><!-- ignore tis plx--></body></html>",
   Object {
     "openIndex": 6,
     "state": "open",
@@ -76,7 +76,7 @@ Array [
   ">",
   ">",
   11,
-  "<html><head></head><body><img /></body></html>",
+  "<html><head></head><body><img /><!-- ignore tis plx--></body></html>",
   Object {
     "contentIndex": 11,
     "openIndex": 6,
@@ -105,7 +105,7 @@ Array [
   "</head",
   "</",
   12,
-  "<html><head></head><body><img /></body></html>",
+  "<html><head></head><body><img /><!-- ignore tis plx--></body></html>",
   Object {
     "closingIndex": 12,
     "contentIndex": 11,
@@ -136,7 +136,7 @@ Array [
   ">",
   ">",
   18,
-  "<html><head></head><body><img /></body></html>",
+  "<html><head></head><body><img /><!-- ignore tis plx--></body></html>",
   Object {
     "closeIndex": 18,
     "closingIndex": 12,
@@ -169,7 +169,7 @@ Array [
   "<body",
   "<",
   19,
-  "<html><head></head><body><img /></body></html>",
+  "<html><head></head><body><img /><!-- ignore tis plx--></body></html>",
   Object {
     "openIndex": 19,
     "state": "open",
@@ -196,7 +196,7 @@ Array [
   ">",
   ">",
   24,
-  "<html><head></head><body><img /></body></html>",
+  "<html><head></head><body><img /><!-- ignore tis plx--></body></html>",
   Object {
     "contentIndex": 24,
     "openIndex": 19,
@@ -225,7 +225,7 @@ Array [
   "<img",
   "<",
   25,
-  "<html><head></head><body><img /></body></html>",
+  "<html><head></head><body><img /><!-- ignore tis plx--></body></html>",
   Object {
     "openIndex": 25,
     "state": "open",
@@ -258,7 +258,7 @@ Array [
   "/>",
   "/>",
   30,
-  "<html><head></head><body><img /></body></html>",
+  "<html><head></head><body><img /><!-- ignore tis plx--></body></html>",
   Object {
     "closeIndex": 30,
     "openIndex": 25,
@@ -290,16 +290,14 @@ Array [
 
 exports[`walker calls the callback for each given HTML token 11`] = `
 Array [
-  "</body",
-  "</",
+  "<!--",
+  "<",
   32,
-  "<html><head></head><body><img /></body></html>",
+  "<html><head></head><body><img /><!-- ignore tis plx--></body></html>",
   Object {
-    "closingIndex": 32,
-    "contentIndex": 24,
-    "openIndex": 19,
-    "state": "closing",
-    "tagName": "body",
+    "openIndex": 32,
+    "state": "open",
+    "tagName": "!--",
   },
   Array [
     Object {
@@ -309,11 +307,15 @@ Array [
       "tagName": "html",
     },
     Object {
-      "closingIndex": 32,
       "contentIndex": 24,
       "openIndex": 19,
-      "state": "closing",
+      "state": "content",
       "tagName": "body",
+    },
+    Object {
+      "openIndex": 32,
+      "state": "open",
+      "tagName": "!--",
     },
   ],
 ]
@@ -321,13 +323,47 @@ Array [
 
 exports[`walker calls the callback for each given HTML token 12`] = `
 Array [
-  ">",
-  ">",
-  38,
-  "<html><head></head><body><img /></body></html>",
+  "-->",
+  "-->",
+  51,
+  "<html><head></head><body><img /><!-- ignore tis plx--></body></html>",
   Object {
-    "closeIndex": 38,
-    "closingIndex": 32,
+    "closeIndex": 51,
+    "openIndex": 32,
+    "state": "open",
+    "tagName": "!--",
+  },
+  Array [
+    Object {
+      "contentIndex": 5,
+      "openIndex": 0,
+      "state": "content",
+      "tagName": "html",
+    },
+    Object {
+      "contentIndex": 24,
+      "openIndex": 19,
+      "state": "content",
+      "tagName": "body",
+    },
+    Object {
+      "closeIndex": 51,
+      "openIndex": 32,
+      "state": "open",
+      "tagName": "!--",
+    },
+  ],
+]
+`;
+
+exports[`walker calls the callback for each given HTML token 13`] = `
+Array [
+  "</body",
+  "</",
+  54,
+  "<html><head></head><body><img /><!-- ignore tis plx--></body></html>",
+  Object {
+    "closingIndex": 54,
     "contentIndex": 24,
     "openIndex": 19,
     "state": "closing",
@@ -341,37 +377,11 @@ Array [
       "tagName": "html",
     },
     Object {
-      "closeIndex": 38,
-      "closingIndex": 32,
+      "closingIndex": 54,
       "contentIndex": 24,
       "openIndex": 19,
       "state": "closing",
       "tagName": "body",
-    },
-  ],
-]
-`;
-
-exports[`walker calls the callback for each given HTML token 13`] = `
-Array [
-  "</html",
-  "</",
-  39,
-  "<html><head></head><body><img /></body></html>",
-  Object {
-    "closingIndex": 39,
-    "contentIndex": 5,
-    "openIndex": 0,
-    "state": "closing",
-    "tagName": "html",
-  },
-  Array [
-    Object {
-      "closingIndex": 39,
-      "contentIndex": 5,
-      "openIndex": 0,
-      "state": "closing",
-      "tagName": "html",
     },
   ],
 ]
@@ -381,11 +391,43 @@ exports[`walker calls the callback for each given HTML token 14`] = `
 Array [
   ">",
   ">",
-  45,
-  "<html><head></head><body><img /></body></html>",
+  60,
+  "<html><head></head><body><img /><!-- ignore tis plx--></body></html>",
   Object {
-    "closeIndex": 45,
-    "closingIndex": 39,
+    "closeIndex": 60,
+    "closingIndex": 54,
+    "contentIndex": 24,
+    "openIndex": 19,
+    "state": "closing",
+    "tagName": "body",
+  },
+  Array [
+    Object {
+      "contentIndex": 5,
+      "openIndex": 0,
+      "state": "content",
+      "tagName": "html",
+    },
+    Object {
+      "closeIndex": 60,
+      "closingIndex": 54,
+      "contentIndex": 24,
+      "openIndex": 19,
+      "state": "closing",
+      "tagName": "body",
+    },
+  ],
+]
+`;
+
+exports[`walker calls the callback for each given HTML token 15`] = `
+Array [
+  "</html",
+  "</",
+  61,
+  "<html><head></head><body><img /><!-- ignore tis plx--></body></html>",
+  Object {
+    "closingIndex": 61,
     "contentIndex": 5,
     "openIndex": 0,
     "state": "closing",
@@ -393,8 +435,7 @@ Array [
   },
   Array [
     Object {
-      "closeIndex": 45,
-      "closingIndex": 39,
+      "closingIndex": 61,
       "contentIndex": 5,
       "openIndex": 0,
       "state": "closing",
@@ -404,16 +445,43 @@ Array [
 ]
 `;
 
-exports[`walker calls the callback for each given HTML token 15`] = `14`;
+exports[`walker calls the callback for each given HTML token 16`] = `
+Array [
+  ">",
+  ">",
+  67,
+  "<html><head></head><body><img /><!-- ignore tis plx--></body></html>",
+  Object {
+    "closeIndex": 67,
+    "closingIndex": 61,
+    "contentIndex": 5,
+    "openIndex": 0,
+    "state": "closing",
+    "tagName": "html",
+  },
+  Array [
+    Object {
+      "closeIndex": 67,
+      "closingIndex": 61,
+      "contentIndex": 5,
+      "openIndex": 0,
+      "state": "closing",
+      "tagName": "html",
+    },
+  ],
+]
+`;
 
-exports[`walker calls the callback for each given HTML token 16`] = `"<html><head></head><body><img /></body></html>"`;
+exports[`walker calls the callback for each given HTML token 17`] = `16`;
+
+exports[`walker calls the callback for each given HTML token 18`] = `"<html><head></head><body><img /><!-- ignore tis plx--></body></html>"`;
 
 exports[`walker doesn't mutate the output if the callback doesn't explicitly return a string value 1`] = `
 Array [
   "<html",
   "<",
   0,
-  "<html><head></head><body><img /></body></html>",
+  "<html><head></head><body><img /><!-- ignore tis plx--></body></html>",
   Object {
     "openIndex": 0,
     "state": "open",
@@ -434,7 +502,7 @@ Array [
   ">",
   ">",
   5,
-  "<html><head></head><body><img /></body></html>",
+  "<html><head></head><body><img /><!-- ignore tis plx--></body></html>",
   Object {
     "contentIndex": 5,
     "openIndex": 0,
@@ -457,7 +525,7 @@ Array [
   "<head",
   "<",
   6,
-  "<html><head></head><body><img /></body></html>",
+  "<html><head></head><body><img /><!-- ignore tis plx--></body></html>",
   Object {
     "openIndex": 6,
     "state": "open",
@@ -484,7 +552,7 @@ Array [
   ">",
   ">",
   11,
-  "<html><head></head><body><img /></body></html>",
+  "<html><head></head><body><img /><!-- ignore tis plx--></body></html>",
   Object {
     "contentIndex": 11,
     "openIndex": 6,
@@ -513,7 +581,7 @@ Array [
   "</head",
   "</",
   12,
-  "<html><head></head><body><img /></body></html>",
+  "<html><head></head><body><img /><!-- ignore tis plx--></body></html>",
   Object {
     "closingIndex": 12,
     "contentIndex": 11,
@@ -544,7 +612,7 @@ Array [
   ">",
   ">",
   18,
-  "<html><head></head><body><img /></body></html>",
+  "<html><head></head><body><img /><!-- ignore tis plx--></body></html>",
   Object {
     "closeIndex": 18,
     "closingIndex": 12,
@@ -577,7 +645,7 @@ Array [
   "<body",
   "<",
   19,
-  "<html><head></head><body><img /></body></html>",
+  "<html><head></head><body><img /><!-- ignore tis plx--></body></html>",
   Object {
     "openIndex": 19,
     "state": "open",
@@ -604,7 +672,7 @@ Array [
   ">",
   ">",
   24,
-  "<html><head></head><body><img /></body></html>",
+  "<html><head></head><body><img /><!-- ignore tis plx--></body></html>",
   Object {
     "contentIndex": 24,
     "openIndex": 19,
@@ -633,7 +701,7 @@ Array [
   "<img",
   "<",
   25,
-  "<html><head></head><body><img /></body></html>",
+  "<html><head></head><body><img /><!-- ignore tis plx--></body></html>",
   Object {
     "openIndex": 25,
     "state": "open",
@@ -666,7 +734,7 @@ Array [
   "/>",
   "/>",
   30,
-  "<html><head></head><body><img /></body></html>",
+  "<html><head></head><body><img /><!-- ignore tis plx--></body></html>",
   Object {
     "closeIndex": 30,
     "openIndex": 25,
@@ -698,16 +766,14 @@ Array [
 
 exports[`walker doesn't mutate the output if the callback doesn't explicitly return a string value 11`] = `
 Array [
-  "</body",
-  "</",
+  "<!--",
+  "<",
   32,
-  "<html><head></head><body><img /></body></html>",
+  "<html><head></head><body><img /><!-- ignore tis plx--></body></html>",
   Object {
-    "closingIndex": 32,
-    "contentIndex": 24,
-    "openIndex": 19,
-    "state": "closing",
-    "tagName": "body",
+    "openIndex": 32,
+    "state": "open",
+    "tagName": "!--",
   },
   Array [
     Object {
@@ -717,11 +783,15 @@ Array [
       "tagName": "html",
     },
     Object {
-      "closingIndex": 32,
       "contentIndex": 24,
       "openIndex": 19,
-      "state": "closing",
+      "state": "content",
       "tagName": "body",
+    },
+    Object {
+      "openIndex": 32,
+      "state": "open",
+      "tagName": "!--",
     },
   ],
 ]
@@ -729,13 +799,47 @@ Array [
 
 exports[`walker doesn't mutate the output if the callback doesn't explicitly return a string value 12`] = `
 Array [
-  ">",
-  ">",
-  38,
-  "<html><head></head><body><img /></body></html>",
+  "-->",
+  "-->",
+  51,
+  "<html><head></head><body><img /><!-- ignore tis plx--></body></html>",
   Object {
-    "closeIndex": 38,
-    "closingIndex": 32,
+    "closeIndex": 51,
+    "openIndex": 32,
+    "state": "open",
+    "tagName": "!--",
+  },
+  Array [
+    Object {
+      "contentIndex": 5,
+      "openIndex": 0,
+      "state": "content",
+      "tagName": "html",
+    },
+    Object {
+      "contentIndex": 24,
+      "openIndex": 19,
+      "state": "content",
+      "tagName": "body",
+    },
+    Object {
+      "closeIndex": 51,
+      "openIndex": 32,
+      "state": "open",
+      "tagName": "!--",
+    },
+  ],
+]
+`;
+
+exports[`walker doesn't mutate the output if the callback doesn't explicitly return a string value 13`] = `
+Array [
+  "</body",
+  "</",
+  54,
+  "<html><head></head><body><img /><!-- ignore tis plx--></body></html>",
+  Object {
+    "closingIndex": 54,
     "contentIndex": 24,
     "openIndex": 19,
     "state": "closing",
@@ -749,37 +853,11 @@ Array [
       "tagName": "html",
     },
     Object {
-      "closeIndex": 38,
-      "closingIndex": 32,
+      "closingIndex": 54,
       "contentIndex": 24,
       "openIndex": 19,
       "state": "closing",
       "tagName": "body",
-    },
-  ],
-]
-`;
-
-exports[`walker doesn't mutate the output if the callback doesn't explicitly return a string value 13`] = `
-Array [
-  "</html",
-  "</",
-  39,
-  "<html><head></head><body><img /></body></html>",
-  Object {
-    "closingIndex": 39,
-    "contentIndex": 5,
-    "openIndex": 0,
-    "state": "closing",
-    "tagName": "html",
-  },
-  Array [
-    Object {
-      "closingIndex": 39,
-      "contentIndex": 5,
-      "openIndex": 0,
-      "state": "closing",
-      "tagName": "html",
     },
   ],
 ]
@@ -789,11 +867,43 @@ exports[`walker doesn't mutate the output if the callback doesn't explicitly ret
 Array [
   ">",
   ">",
-  45,
-  "<html><head></head><body><img /></body></html>",
+  60,
+  "<html><head></head><body><img /><!-- ignore tis plx--></body></html>",
   Object {
-    "closeIndex": 45,
-    "closingIndex": 39,
+    "closeIndex": 60,
+    "closingIndex": 54,
+    "contentIndex": 24,
+    "openIndex": 19,
+    "state": "closing",
+    "tagName": "body",
+  },
+  Array [
+    Object {
+      "contentIndex": 5,
+      "openIndex": 0,
+      "state": "content",
+      "tagName": "html",
+    },
+    Object {
+      "closeIndex": 60,
+      "closingIndex": 54,
+      "contentIndex": 24,
+      "openIndex": 19,
+      "state": "closing",
+      "tagName": "body",
+    },
+  ],
+]
+`;
+
+exports[`walker doesn't mutate the output if the callback doesn't explicitly return a string value 15`] = `
+Array [
+  "</html",
+  "</",
+  61,
+  "<html><head></head><body><img /><!-- ignore tis plx--></body></html>",
+  Object {
+    "closingIndex": 61,
     "contentIndex": 5,
     "openIndex": 0,
     "state": "closing",
@@ -801,8 +911,7 @@ Array [
   },
   Array [
     Object {
-      "closeIndex": 45,
-      "closingIndex": 39,
+      "closingIndex": 61,
       "contentIndex": 5,
       "openIndex": 0,
       "state": "closing",
@@ -812,16 +921,43 @@ Array [
 ]
 `;
 
-exports[`walker doesn't mutate the output if the callback doesn't explicitly return a string value 15`] = `14`;
+exports[`walker doesn't mutate the output if the callback doesn't explicitly return a string value 16`] = `
+Array [
+  ">",
+  ">",
+  67,
+  "<html><head></head><body><img /><!-- ignore tis plx--></body></html>",
+  Object {
+    "closeIndex": 67,
+    "closingIndex": 61,
+    "contentIndex": 5,
+    "openIndex": 0,
+    "state": "closing",
+    "tagName": "html",
+  },
+  Array [
+    Object {
+      "closeIndex": 67,
+      "closingIndex": 61,
+      "contentIndex": 5,
+      "openIndex": 0,
+      "state": "closing",
+      "tagName": "html",
+    },
+  ],
+]
+`;
 
-exports[`walker doesn't mutate the output if the callback doesn't explicitly return a string value 16`] = `"<html><head></head><body><img /></body></html>"`;
+exports[`walker doesn't mutate the output if the callback doesn't explicitly return a string value 17`] = `16`;
+
+exports[`walker doesn't mutate the output if the callback doesn't explicitly return a string value 18`] = `"<html><head></head><body><img /><!-- ignore tis plx--></body></html>"`;
 
 exports[`walker gives correct coordinates when the HTML is changed 1`] = `
 Array [
   "<html",
   "<",
   0,
-  "<html><head></head><body><img /></body></html>",
+  "<html><head></head><body><img /><!-- ignore tis plx--></body></html>",
   Object {
     "openIndex": 0,
     "state": "open",
@@ -842,7 +978,7 @@ Array [
   ">",
   ">",
   5,
-  "<html><head></head><body><img /></body></html>",
+  "<html><head></head><body><img /><!-- ignore tis plx--></body></html>",
   Object {
     "contentIndex": 5,
     "openIndex": 0,
@@ -865,7 +1001,7 @@ Array [
   "<head",
   "<",
   6,
-  "<html><head></head><body><img /></body></html>",
+  "<html><head></head><body><img /><!-- ignore tis plx--></body></html>",
   Object {
     "openIndex": 6,
     "state": "open",
@@ -892,7 +1028,7 @@ Array [
   ">",
   ">",
   11,
-  "<html><head></head><body><img /></body></html>",
+  "<html><head></head><body><img /><!-- ignore tis plx--></body></html>",
   Object {
     "contentIndex": 11,
     "openIndex": 6,
@@ -921,7 +1057,7 @@ Array [
   "</head",
   "</",
   12,
-  "<html><head></head><body><img /></body></html>",
+  "<html><head></head><body><img /><!-- ignore tis plx--></body></html>",
   Object {
     "closingIndex": 12,
     "contentIndex": 11,
@@ -952,7 +1088,7 @@ Array [
   ">",
   ">",
   18,
-  "<html><head></head><body><img /></body></html>",
+  "<html><head></head><body><img /><!-- ignore tis plx--></body></html>",
   Object {
     "closeIndex": 18,
     "closingIndex": 12,
@@ -985,7 +1121,7 @@ Array [
   "<body",
   "<",
   19,
-  "<html><head></head><body><img /></body></html>",
+  "<html><head></head><body><img /><!-- ignore tis plx--></body></html>",
   Object {
     "openIndex": 19,
     "state": "open",
@@ -1012,7 +1148,7 @@ Array [
   ">",
   ">",
   24,
-  "<html><head></head><body><img /></body></html>",
+  "<html><head></head><body><img /><!-- ignore tis plx--></body></html>",
   Object {
     "contentIndex": 24,
     "openIndex": 19,
@@ -1041,7 +1177,7 @@ Array [
   "<img",
   "<",
   25,
-  "<html><head></head><body><img /></body></html>",
+  "<html><head></head><body><img /><!-- ignore tis plx--></body></html>",
   Object {
     "openIndex": 25,
     "state": "open",
@@ -1074,7 +1210,7 @@ Array [
   "/>",
   "/>",
   30,
-  "<html><head></head><body><img /></body></html>",
+  "<html><head></head><body><img /><!-- ignore tis plx--></body></html>",
   Object {
     "closeIndex": 30,
     "openIndex": 25,
@@ -1106,16 +1242,14 @@ Array [
 
 exports[`walker gives correct coordinates when the HTML is changed 11`] = `
 Array [
-  "</body",
-  "</",
+  "<!--",
+  "<",
   32,
-  "<html><head></head><body><img /></body></html>",
+  "<html><head></head><body><img /><!-- ignore tis plx--></body></html>",
   Object {
-    "closingIndex": 32,
-    "contentIndex": 24,
-    "openIndex": 19,
-    "state": "closing",
-    "tagName": "body",
+    "openIndex": 32,
+    "state": "open",
+    "tagName": "!--",
   },
   Array [
     Object {
@@ -1125,11 +1259,15 @@ Array [
       "tagName": "html",
     },
     Object {
-      "closingIndex": 32,
       "contentIndex": 24,
       "openIndex": 19,
-      "state": "closing",
+      "state": "content",
       "tagName": "body",
+    },
+    Object {
+      "openIndex": 32,
+      "state": "open",
+      "tagName": "!--",
     },
   ],
 ]
@@ -1137,13 +1275,47 @@ Array [
 
 exports[`walker gives correct coordinates when the HTML is changed 12`] = `
 Array [
-  ">",
-  ">",
-  38,
-  "<html><head></head><body><img /></body></html>",
+  "-->",
+  "-->",
+  51,
+  "<html><head></head><body><img /><!-- ignore tis plx--></body></html>",
   Object {
-    "closeIndex": 38,
-    "closingIndex": 32,
+    "closeIndex": 51,
+    "openIndex": 32,
+    "state": "open",
+    "tagName": "!--",
+  },
+  Array [
+    Object {
+      "contentIndex": 5,
+      "openIndex": 0,
+      "state": "content",
+      "tagName": "html",
+    },
+    Object {
+      "contentIndex": 24,
+      "openIndex": 19,
+      "state": "content",
+      "tagName": "body",
+    },
+    Object {
+      "closeIndex": 51,
+      "openIndex": 32,
+      "state": "open",
+      "tagName": "!--",
+    },
+  ],
+]
+`;
+
+exports[`walker gives correct coordinates when the HTML is changed 13`] = `
+Array [
+  "</body",
+  "</",
+  54,
+  "<html><head></head><body><img /><!-- ignore tis plx--></body></html>",
+  Object {
+    "closingIndex": 54,
     "contentIndex": 24,
     "openIndex": 19,
     "state": "closing",
@@ -1157,37 +1329,11 @@ Array [
       "tagName": "html",
     },
     Object {
-      "closeIndex": 38,
-      "closingIndex": 32,
+      "closingIndex": 54,
       "contentIndex": 24,
       "openIndex": 19,
       "state": "closing",
       "tagName": "body",
-    },
-  ],
-]
-`;
-
-exports[`walker gives correct coordinates when the HTML is changed 13`] = `
-Array [
-  "</html",
-  "</",
-  39,
-  "<html><head></head><body><img /></body></html>",
-  Object {
-    "closingIndex": 39,
-    "contentIndex": 5,
-    "openIndex": 0,
-    "state": "closing",
-    "tagName": "html",
-  },
-  Array [
-    Object {
-      "closingIndex": 39,
-      "contentIndex": 5,
-      "openIndex": 0,
-      "state": "closing",
-      "tagName": "html",
     },
   ],
 ]
@@ -1197,11 +1343,43 @@ exports[`walker gives correct coordinates when the HTML is changed 14`] = `
 Array [
   ">",
   ">",
-  45,
-  "<html><head></head><body><img /></body></html>",
+  60,
+  "<html><head></head><body><img /><!-- ignore tis plx--></body></html>",
   Object {
-    "closeIndex": 45,
-    "closingIndex": 39,
+    "closeIndex": 60,
+    "closingIndex": 54,
+    "contentIndex": 24,
+    "openIndex": 19,
+    "state": "closing",
+    "tagName": "body",
+  },
+  Array [
+    Object {
+      "contentIndex": 5,
+      "openIndex": 0,
+      "state": "content",
+      "tagName": "html",
+    },
+    Object {
+      "closeIndex": 60,
+      "closingIndex": 54,
+      "contentIndex": 24,
+      "openIndex": 19,
+      "state": "closing",
+      "tagName": "body",
+    },
+  ],
+]
+`;
+
+exports[`walker gives correct coordinates when the HTML is changed 15`] = `
+Array [
+  "</html",
+  "</",
+  61,
+  "<html><head></head><body><img /><!-- ignore tis plx--></body></html>",
+  Object {
+    "closingIndex": 61,
     "contentIndex": 5,
     "openIndex": 0,
     "state": "closing",
@@ -1209,8 +1387,7 @@ Array [
   },
   Array [
     Object {
-      "closeIndex": 45,
-      "closingIndex": 39,
+      "closingIndex": 61,
       "contentIndex": 5,
       "openIndex": 0,
       "state": "closing",
@@ -1220,8 +1397,35 @@ Array [
 ]
 `;
 
-exports[`walker gives correct coordinates when the HTML is changed 15`] = `14`;
+exports[`walker gives correct coordinates when the HTML is changed 16`] = `
+Array [
+  ">",
+  ">",
+  67,
+  "<html><head></head><body><img /><!-- ignore tis plx--></body></html>",
+  Object {
+    "closeIndex": 67,
+    "closingIndex": 61,
+    "contentIndex": 5,
+    "openIndex": 0,
+    "state": "closing",
+    "tagName": "html",
+  },
+  Array [
+    Object {
+      "closeIndex": 67,
+      "closingIndex": 61,
+      "contentIndex": 5,
+      "openIndex": 0,
+      "state": "closing",
+      "tagName": "html",
+    },
+  ],
+]
+`;
 
-exports[`walker gives correct coordinates when the HTML is changed 16`] = `"<html autocomplete=\\"off\\"> autocomplete=\\"off\\"<head autocomplete=\\"off\\"> autocomplete=\\"off\\"</head autocomplete=\\"off\\"> autocomplete=\\"off\\"<body autocomplete=\\"off\\"> autocomplete=\\"off\\"<img autocomplete=\\"off\\" /> autocomplete=\\"off\\"</body autocomplete=\\"off\\"> autocomplete=\\"off\\"</html autocomplete=\\"off\\"> autocomplete=\\"off\\""`;
+exports[`walker gives correct coordinates when the HTML is changed 17`] = `16`;
+
+exports[`walker gives correct coordinates when the HTML is changed 18`] = `"<html autocomplete=\\"off\\"> autocomplete=\\"off\\"<head autocomplete=\\"off\\"> autocomplete=\\"off\\"</head autocomplete=\\"off\\"> autocomplete=\\"off\\"<body autocomplete=\\"off\\"> autocomplete=\\"off\\"<img autocomplete=\\"off\\" /> autocomplete=\\"off\\"<!-- autocomplete=\\"off\\" ignore tis plx--> autocomplete=\\"off\\"</body autocomplete=\\"off\\"> autocomplete=\\"off\\"</html autocomplete=\\"off\\"> autocomplete=\\"off\\""`;
 
 exports[`walker throws an error if no callback is supplied 1`] = `"A callback is required!"`;

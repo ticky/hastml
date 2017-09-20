@@ -15,7 +15,7 @@ describe('walker', () => {
     );
 
     const output = walker(
-      '<html><head></head><body><img /></body></html>',
+      '<html><head></head><body><img /><!-- ignore tis plx--></body></html>',
       callback
     );
 
@@ -31,7 +31,7 @@ describe('walker', () => {
     );
 
     const output = walker(
-      '<html><head></head><body><img /></body></html>',
+      '<html><head></head><body><img /><!-- ignore tis plx--></body></html>',
       callback
     );
 
@@ -48,7 +48,7 @@ describe('walker', () => {
     );
 
     const output = walker(
-      '<html><head></head><body><img /></body></html>',
+      '<html><head></head><body><img /><!-- ignore tis plx--></body></html>',
       callback
     );
 
