@@ -1,5 +1,5 @@
 # Hasty HTML, XML and SGML walker
-[![npm](https://img.shields.io/npm/v/hastml.svg?maxAge=2592000)](https://www.npmjs.com/package/hastml) ![hastml](https://img.shields.io/npm/l/hastml.svg?maxAge=2592000) [![Build Status](https://travis-ci.org/ticky/hastml.svg?branch=master)](https://travis-ci.org/ticky/hastml) [![codecov](https://codecov.io/gh/ticky/hastml/branch/master/graph/badge.svg)](https://codecov.io/gh/ticky/hastml)
+[![npm](https://img.shields.io/npm/v/hastml.svg?maxAge=2592000)](https://www.npmjs.com/package/hastml) ![hastml](https://img.shields.io/npm/l/hastml.svg?maxAge=2592000) [![Build Status](https://travis-ci.org/ticky/hastml.svg?branch=develop)](https://travis-ci.org/ticky/hastml) [![codecov](https://codecov.io/gh/ticky/hastml/branch/develop/graph/badge.svg)](https://codecov.io/gh/ticky/hastml)
 
 🚶🏻‍♀️ A quick and _extremely_ permissive way to process XML-like inputs.
 
